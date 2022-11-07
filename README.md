@@ -20,4 +20,4 @@
 | S.No. | Branch Name                                                             | Purpose                    |
 | ----- | ----------------------------------------------------------------------- | -------------------------- |
 | 1.    | [master](https://github.com/nshrivastav1512/feedback) | contains all backend code  |
-| 2.    | [master](https://github.com/sam-79/ffeedback1-system)                   | contains all Frontend code |
+| 2.    | [master](https://github.com/sam-79/feedback_system)                   | contains all Frontend code |
