@@ -6,14 +6,7 @@
 ```
  git clone https://github.com/sam-79/feedback_system.git
 ```
-- Navigate to the directory and install all dependencies 
-```
- npm install .
-```
-- Run the Server and see the demo at [http://localhost:3000/](http://localhost:3000/)
-```
- npm start
-```
+
 
 ### GitHub Repository Structure
 
