@@ -2,7 +2,7 @@ import React from 'react'
 
 
 import LoginForm from '../LogInForm';
-import Dashboard from './Dashboard';
+import Home from './Home';
 
 
 export const AuthContext = React.createContext();
@@ -97,7 +97,7 @@ function LoginStudent() {
             </div> */}
             <div>
                 {!state.isAuthenticated ? <LoginForm props={{ formTitle, email, password, setEmail, setPassword, authenticateUser }} />
-                    : <Dashboard />
+                    : <Home />
                 }
             </div>
         </AuthContext.Provider >

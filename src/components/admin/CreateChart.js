@@ -2,7 +2,7 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 
 function CreateChart() {
-    const labels = ['Que1','Que1','Que1','Que1','Que1','Que1','Que1','Que1','Que1',];
+    const labels = ['Teacher1','Teacher2','Teacher3','Teacher4','Teacher5','Teacher6','Teacher7','Teacher8','Teacher9',];
     const data = {
         labels: labels,
         datasets: [{

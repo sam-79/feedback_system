@@ -10,8 +10,7 @@ import LoginStudent from './components/students/LoginStudent';
 
 function App() {
   return (
-      <div>
-        
+      <div>   
         {/* Main Content goes here */}
         <Routes>
           <Route path='/' element={<Home />} />

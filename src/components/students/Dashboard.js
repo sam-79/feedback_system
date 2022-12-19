@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import { Navbar, Nav, Container, Offcanvas, Button, Row, Col, Image, Form } from 'react-bootstrap';
-import { Line } from 'react-chartjs-2';
+import { Container, Image, } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import { AuthContext } from './LoginStudent';
 
@@ -16,20 +16,19 @@ function Dashboard() {
         //function to get list of forms assigned to the logged in user
 
         let assignForms = [
-            { id: "ABC01", subject: 'DSA', faculty: 'Pushpa Birha', lastDate: '11-11-22' },
-            { id: "ABC01", subject: 'DSA', faculty: 'Pushpa Birha', lastDate: '11-11-22' },
-            { id: "ABC01", subject: 'DSA', faculty: 'Pushpa Birha', lastDate: '11-11-22' },
-            { id: "ABC01", subject: 'DSA', faculty: 'Pushpa Birha', lastDate: '11-11-22' },
-
+            { id: "F1", collegeName: "GHRIETN", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'UDM', subjectType: 'Theory' },
+            { id: "F2", collegeName: "GHRIETN", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'IIN', subjectType: 'Theory' },
+            { id: "F3", collegeName: "GHRIETN", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'UHV', subjectType: 'Theory' },
+            { id: "F4", collegeName: "GHRIETN", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'Content Desgining', subjectType: 'Theory' },
+            // { id: "F6", collegeName: "GHRIETN", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'Machine Learning', subjectType: 'Theory' }
         ]
+
         setAssignedForm(assignForms);
 
     }
 
     useEffect(() => {
-
         getAssignedForms()
-
         return () => {
             setAssignedForm(null);
         }
@@ -37,88 +36,38 @@ function Dashboard() {
 
 
     return (
-        <div>
-            {/* Navigation Bar */}
-            <Navbar key={'nav'} bg="light" expand={false} className="mb-3">
-                <Container fluid>
-                    <Navbar.Brand href="#">Dashboard</Navbar.Brand>
+        <Container>
 
-                    <Navbar className="justify-content-end" style={{ alignSelf: 'flex-end' }}>
-                        <Navbar.Text>
-                            Welcome, {state.displayName}
-                        </Navbar.Text>
-                    </Navbar>
+            <div style={{
+                display: "flex",
+                justifyContent: "space-between",
+            }}>
+                <span style={{ marginTop: 50 }}>
+                    <h5 className="my-3">Forms assigned for feedback</h5>
+                    {
+                        (assignedForm != null && assignedForm.length > 0) ?
+                            assignedForm.map((data, index) => {
+                                
+                                return (
+                                    <div key={`${data.id}-${index}`} className="my-2" >
+                                        <Link to={`${JSON.stringify(data)}`} >
+                                            {`${data.id} - ${data.subjectName}(${data.subjectType}) - ${data.courseName}`}
+                                        </Link>
+                                        <br />
+                                        {/* <p>Last date: {data.lastDate}</p> */}
+                                    </div>
+                                )
+                            })
+                            :
+                            <p>Currently, no forms assigned</p>
+                    }
 
-                    <Navbar.Toggle />
-                    <Navbar.Offcanvas
-                        id={`offcanvasNavbar-expand`}
-                        aria-labelledby={`offcanvasNavbarLabel-expand`}
-                        placement="end"
-                    >
-
-                        <Offcanvas.Header closeButton>
-                            <Offcanvas.Title id={`offcanvasNavbarLabel-expand`}>
-                                Menu
-                            </Offcanvas.Title>
-                        </Offcanvas.Header>
-
-                        <Nav className="justify-content-end" >
-
-                            <Button href="#
-                            
-                            " variant="outline-primary" size='lg' >Home</Button>
-                            <Button variant="outline-primary" size='lg' onClick={() => { dispatch({ type: 'LOGOUT' }) }}>Logout</Button>
-
-                        </Nav>
-                        <Offcanvas.Body>
-
-                        </Offcanvas.Body>
-                    </Navbar.Offcanvas>
-                </Container>
-            </Navbar>
-
-            <h3>Welcome, {state.displayName}</h3>
-            <hr align={'center'} width={"50%"} />
-
-            <Container>
-
-                <div style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                }}>
-                    <span style={{ marginTop: 50 }}>
-                        <h5>Forms assigned for feedback</h5>
-
-                        {
-                            (assignedForm != null && assignedForm.length > 0) ?
-                                assignedForm.map((data, index) => {
-                                    return (
-                                        <div key={`${data.id}-${index}`}>
-                                            <a href='#' style={{ textDecoration: 'None', fontSize: 20 }}>
-                                                {data.subject} - {data.faculty}
-                                            </a><br />
-                                            <p>Last date: {data.lastDate}</p>
-                                        </div>
-                                    )
-                                })
-                                :
-                                <p>Currently, no forms assigned</p>
-                        }
-
-                    </span>
-                    <span >
-                        <Image src='assets/7709382_3721106.jpg' height={500} />
-                    </span>
-                </div>
-            </Container >
-
-
-            <Container>
-
-            </Container>
-
-
-        </div >
+                </span>
+                <span >
+                    <Image src='https://i.pinimg.com/originals/60/e2/5c/60e25cbc6ab9f4d2c8564729127bf9eb.gif' height={500} />
+                </span>
+            </div>
+        </Container >
     )
 }
 

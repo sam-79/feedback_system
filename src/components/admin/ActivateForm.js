@@ -47,89 +47,95 @@ function ActivateForm({ props }) {
             <Row>
               <Col lg className="my-2">
 
-                <Form.Select aria-label="Select College" onChange={(event) => getCourseList(event.target.value)}>
-                  <option>Select College</option>
+                <label for='college-select'>Select College</label>
+                <Form.Select id='college-select' aria-label="Select College" onChange={(event) => getCourseList(event.target.value)}>
+                  <option>All</option>
                   {
-                    // batchList.map((data, index) => {
-                    //   return (
-                    //     <option as={'p'} key={`${data.id}-${index}`} value={data.name}>{data.name}</option>
-                    //   )
-                    // })
+                    ["GHRIETN",'GHRAETN','GHRIITN','GHRPCN'].map((data, index) => {
+                      return (
+                        <option as={'p'} key={`${data}-${index}`} value={data}>{data}</option>
+                      )
+                    })
                   }
                 </Form.Select>
 
               </Col>
               <Col lg className="my-2">
-
-                <Form.Select aria-label="Select Course" onChange={(event) => getYearList(event.target.value)}>
-                  <option>Select Course</option>
+              <label for='course-select'>Select Course</label>
+                <Form.Select id='course-select' aria-label="Select Course" onChange={(event) => getYearList(event.target.value)}>
+                  <option>All</option>
                   {
-                    // subjectList.map((data, index) => {
-                    //   return (
-                    //     <option as={'p'} key={`${data.id}-${index}`} value={data.name}>{data.name}</option>
-                    //   )
-                    // })
+                    ["B.Tech",'B.E.','B.Com.','BBA','B.SC.'].map((data, index) => {
+                      return (
+                        <option as={'p'} key={`${data}-${index}`} value={data}>{data}</option>
+                      )
+                    })
                   }
                 </Form.Select>
               </Col>
 
               <Col lg className="my-2">
-
-                <Form.Select aria-label="Select Year" onChange={(event) => getSemesterList(event.target.value)}>
-                  <option>Select Year</option>
+              <label for='year-select'>Select Year</label>
+                <Form.Select id='year-select' aria-label="Select Year" onChange={(event) => getSemesterList(event.target.value)}>
+                  <option>All</option>
                   {
-                    // subjectList.map((data, index) => {
-                    //   return (
-                    //     <option as={'p'} key={`${data.id}-${index}`} value={data.name}>{data.name}</option>
-                    //   )
-                    // })
+                    ["First",'Second','Third','Fourth'].map((data, index) => {
+                      return (
+                        <option as={'p'} key={`${data}-${index}`} value={data}>{data}</option>
+                      )
+                    })
                   }
                 </Form.Select>
               </Col>
 
               <Col lg className="my-2">
-
-                <Form.Select aria-label="Select Semester" onChange={(event) => getSubjectList(event.target.value)}>
-                  <option>Select Semester</option>
+              <label for='semester-select'>Select Semester</label>
+                <Form.Select id='semester-select' aria-label="Select Semester" onChange={(event) => getSubjectList(event.target.value)}>
+                  <option>All</option>
                   {
-                    // subjectList.map((data, index) => {
-                    //   return (
-                    //     <option as={'p'} key={`${data.id}-${index}`} value={data.name}>{data.name}</option>
-                    //   )
-                    // })
+                    ["5th Sem",'6th Sem'].map((data, index) => {
+                      return (
+                        <option as={'p'} key={`${data}-${index}`} value={data}>{data}</option>
+                      )
+                    })
                   }
                 </Form.Select>
               </Col>
               <Col lg className="my-2">
+              <label for='subject-select'>Select Subject</label>
 
-                <Form.Select aria-label="Select Subject" onChange={(event) => getSubjectTypeList(event.target.value)}>
-                  <option>Select Subject</option>
+                <Form.Select id='subject-select' aria-label="Select Subject" onChange={(event) => getSubjectTypeList(event.target.value)}>
+                  <option>All</option>
                   {
-                    // subjectList.map((data, index) => {
-                    //   return (
-                    //     <option as={'p'} key={`${data.id}-${index}`} value={data.name}>{data.name}</option>
-                    //   )
-                    // })
+                    ["UDM",'INN','Machine Learning','Employability Skills','UHV','Content Designing'].map((data, index) => {
+                      return (
+                        <option as={'p'} key={`${data}-${index}`} value={data}>{data}</option>
+                      )
+                    })
                   }
                 </Form.Select>
               </Col>
               <Col lg className="my-2">
+              <label for='subjectType-select'>Select Subject Type</label>
 
-                <Form.Select aria-label="Select Subject Type" onChange={(event) => getFormQuestions(event.target.value)}>
-                  <option>Select Subject Type</option>
+                <Form.Select id='subjectType-select' aria-label="Select Subject Type" onChange={(event) => getFormQuestions(event.target.value)}>
+                  <option>All</option>
                   {
-                    // subjectList.map((data, index) => {
-                    //   return (
-                    //     <option as={'p'} key={`${data.id}-${index}`} value={data.name}>{data.name}</option>
-                    //   )
-                    // })
+                    ["Theory",'Practical'].map((data, index) => {
+                      return (
+                        <option as={'p'} key={`${data}-${index}`} value={data}>{data}</option>
+                      )
+                    })
                   }
                 </Form.Select>
               </Col>
 
             </Row>
             <Col lg className="my-2">
-              <Button >Send form</Button>
+              <Button onClick={()=>{
+                alert("Form send successful");
+
+              }}>Send form</Button>
             </Col>
           </Form>
 
@@ -179,12 +185,13 @@ function ActivateForm({ props }) {
             <tbody>
 
               {
-                [{ id: "F1", collegeName: "myClgg", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'WD', subjectType: 'Theory' },
-                { id: "F2", collegeName: "myClgg", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'WD', subjectType: 'Theory' },
-                { id: "F3", collegeName: "myClgg", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'WD', subjectType: 'Theory' },
-                { id: "F4", collegeName: "myClgg", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'WD', subjectType: 'Theory' },
-                { id: "F5", collegeName: "myClgg", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'WD', subjectType: 'Theory' },
-                { id: "F6", collegeName: "myClgg", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'WD', subjectType: 'Theory' }]
+                [{ id: "F1", collegeName: "GHRIETN", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'UDM', subjectType: 'Theory' },
+                { id: "F2", collegeName: "GHRIETN", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'IIN', subjectType: 'Theory' },
+                { id: "F3", collegeName: "GHRIETN", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'UHV', subjectType: 'Theory' },
+                { id: "F4", collegeName: "GHRIETN", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'Content Desgining', subjectType: 'Theory' },
+                // { id: "F5", collegeName: "GHRIETN", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'Machine Learning', subjectType: 'Practical' },
+                { id: "F6", collegeName: "GHRIETN", courseName: 'BTech', Year: 3, semValue: 6, subjectName: 'Machine Learning', subjectType: 'Theory' }
+              ]
                   .map((data, index) => {
                     return (
                       // <Link to={`${data.id}`}>
